@@ -15,15 +15,15 @@
 <form action="/converted">
         <div class="input-group flex-nowrap m-3">
             <span class="input-group-text" id="addon-wrapping">Currency to convert from</span>
-            <input type="text" class="form-control" name="currency1"placeholder="USD" aria-describedby="addon-wrapping">
+            <input type="text" class="form-control" name="currency1" {% if c1 %}value="{{c1}}"{% endif %} placeholder="USD" aria-describedby="addon-wrapping">
         </div>
         <div class="input-group flex-nowrap m-3">
             <span class="input-group-text" id="addon-wrapping">Currency to convert to</span>
-            <input type="text" class="form-control" name="currency2"placeholder="EUR" aria-describedby="addon-wrapping">
+            <input type="text" class="form-control"{% if c2 %}value="{{c2}}"{% endif %} name="currency2"placeholder="EUR" aria-describedby="addon-wrapping">
         </div>
         <div class="input-group flex-nowrap m-3">
             <span class="input-group-text" id="addon-wrapping">$</span>
-            <input type="number" class="form-control" name="amount"placeholder="100" aria-describedby="addon-wrapping">
+            <input type="number" class="form-control"{% if amount %}value="{{amount}}"{% endif %} name="amount"placeholder="100" aria-describedby="addon-wrapping">
         </div>
         <button class="btn btn-block btn-success m-3">Convert</button>
 </form>

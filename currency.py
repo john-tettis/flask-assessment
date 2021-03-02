@@ -12,7 +12,7 @@ def convert(c1,c2,amount):
     for i in validity.values():
         if not i:
             return validity
-    return c.convert(c1.upper(), c2.upper(), float(amount))
+    return round(c.convert(c1.upper(), c2.upper(), float(amount)),2)
 
 
 def check_currency(currency):
@@ -33,3 +33,6 @@ def handle_flash(invalid):
     if not validity['amount']:
         msgs.append(f'Amount {amount} is not valid')
     return msgs
+
+def symbol(currency):
+    return code.get_symbol(currency.upper())

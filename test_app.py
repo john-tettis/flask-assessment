@@ -36,7 +36,7 @@ class DisplayResultsCase(TestCase):
             resp = client.get('/converted?currency1=USD&currency2=USD&amount=100')
             html = resp.get_data(as_text=True)
             self.assertEqual(resp.status_code, 200)
-            self.assertIn('100 USD is 100.0 USD', html)
+            self.assertIn('100 US$ is 100.0 US$', html)
     def test_no_values(self):
         with app.test_client() as client:
             resp = client.get('/converted?currency1=&currency2=&amount=')

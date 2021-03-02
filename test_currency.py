@@ -1,5 +1,5 @@
 from unittest import TestCase
-from currency import convert, check_currency, handle_flash
+from currency import convert, check_currency, handle_flash,symbol
 from flask import session
 
 class CurrencyTestCase(TestCase):
@@ -31,7 +31,7 @@ class CurrencyTestCase(TestCase):
         self.assertEquals(check_currency('usd'),True)
         self.assertEquals(check_currency('EUR'),True)
         self.assertEquals(check_currency('yes'),False)
-        
+
     def test_handle_flash(self):
         self.assertEquals(handle_flash([{
         'c1':False,
@@ -48,3 +48,6 @@ class CurrencyTestCase(TestCase):
         'c2':True,
         'amount':False},
         'USD','EUR',None]),['Amount None is not valid'])
+    
+    def test_symbol(self):
+        self.assertEquals(symbol('USD'),'US$')

@@ -1,6 +1,6 @@
 from flask import Flask, session, render_template, request, redirect, flash
 from flask_debugtoolbar import DebugToolbarExtension
-from currency import convert, check_currency, handle_flash
+from currency import convert, check_currency, handle_flash, symbol
 
 app = Flask(__name__)
 app.debug=True
@@ -16,7 +16,8 @@ def currency_form():
         msgs = handle_flash(invalid)
         for msg in msgs:
             flash(msg)
-    return render_template('currency_form.html',)
+        return render_template('currency_form.html',c1=invalid[1],c2=invalid[2],amount=invalid[3])
+    return render_template('currency_form.html')
 
 @app.route('/converted')
 def display_results():
@@ -30,4 +31,4 @@ def display_results():
         return redirect('/')
 
 
-    return render_template('results.html',c1=currency1,c2=currency2,amount=amount, new_amount=new_amount)
+    return render_template('results.html',c1=symbol(currency1),c2=symbol(currency2),amount=amount, new_amount=new_amount)
