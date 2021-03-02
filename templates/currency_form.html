@@ -1,0 +1,32 @@
+{% extends 'base.html'%}
+
+{% block title%}Currency Converter{% endblock %}
+{% block content %}
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <div class=flashes>
+        {% for message in messages %}
+        <div class="alert alert-warning" role="alert">{{ message }}</div>
+        {% endfor %}
+        </div>
+    {% endif %}
+{% endwith %}
+{% block body %}{% endblock %}
+<form action="/converted">
+        <div class="input-group flex-nowrap m-3">
+            <span class="input-group-text" id="addon-wrapping">Currency to convert from</span>
+            <input type="text" class="form-control" name="currency1"placeholder="USD" aria-describedby="addon-wrapping">
+        </div>
+        <div class="input-group flex-nowrap m-3">
+            <span class="input-group-text" id="addon-wrapping">Currency to convert to</span>
+            <input type="text" class="form-control" name="currency2"placeholder="EUR" aria-describedby="addon-wrapping">
+        </div>
+        <div class="input-group flex-nowrap m-3">
+            <span class="input-group-text" id="addon-wrapping">$</span>
+            <input type="number" class="form-control" name="amount"placeholder="100" aria-describedby="addon-wrapping">
+        </div>
+        <button class="btn btn-block btn-success m-3">Convert</button>
+</form>
+
+
+{% endblock %}

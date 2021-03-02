@@ -1,0 +1,15 @@
+{% extends 'base.html'%}
+{% block title%} Results {% endblock%}
+
+{% block content%}
+<div class="card">
+  <div class="card-header">
+    Conversion results
+  </div>
+  <div class="card-body">
+    <h5 class="card-title"></h5>
+    <p class="card-text">{{amount}} {{c1}} is {{new_amount}} {{c2}}</p>
+    <a href="/" class="btn btn-primary">Back to converter</a>
+  </div>
+</div>
+{% endblock%}
