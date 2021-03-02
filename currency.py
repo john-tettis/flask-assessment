@@ -22,8 +22,8 @@ def check_currency(currency):
 
 def handle_flash(invalid):
     validity = invalid[0]
-    c1 =  invalid[1]
-    c2 = invalid[2]
+    c1 =  invalid[1] if invalid[1] else 1
+    c2 = invalid[2]if invalid[2] else 2
     amount = invalid[3]
     msgs =[]
     if not validity['c1']:

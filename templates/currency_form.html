@@ -13,20 +13,21 @@
 {% endwith %}
 {% block body %}{% endblock %}
 <form action="/converted">
-        <div class="input-group flex-nowrap m-3">
-            <span class="input-group-text" id="addon-wrapping">Currency to convert from</span>
-            <input type="text" class="form-control" name="currency1" {% if c1 %}value="{{c1}}"{% endif %} placeholder="USD" aria-describedby="addon-wrapping">
-        </div>
-        <div class="input-group flex-nowrap m-3">
-            <span class="input-group-text" id="addon-wrapping">Currency to convert to</span>
-            <input type="text" class="form-control"{% if c2 %}value="{{c2}}"{% endif %} name="currency2"placeholder="EUR" aria-describedby="addon-wrapping">
-        </div>
-        <div class="input-group flex-nowrap m-3">
-            <span class="input-group-text" id="addon-wrapping">$</span>
-            <input type="number" class="form-control"{% if amount %}value="{{amount}}"{% endif %} name="amount"placeholder="100" aria-describedby="addon-wrapping">
-        </div>
-        <button class="btn btn-block btn-success m-3">Convert</button>
+    <label for="c1">Convert from:</label>
+    <div class="input-group mb-3">
+        <input id="c1"type="text" class="form-control" name="currency1" {% if c1 %}value="{{c1}}"{% endif %} placeholder="USD" aria-describedby="addon-wrapping">
+    </div>
+    <label for="c2">Convert from:</label>
+    <div class="input-group mb-3">
+        <input id="c2"type="text" class="form-control"{% if c2 %}value="{{c2}}"{% endif %} name="currency2"placeholder="EUR" aria-describedby="addon-wrapping">
+    </div>
+    <label for="amount">Amount:</label>
+    <div class="input-group mb-3">
+        <input id="amount"type="number" class="form-control"{% if amount %}value="{{amount}}"{% endif %} name="amount"placeholder="100" aria-describedby="addon-wrapping">
+    </div>
+    <button class="btn btn-block btn-success mt-3">Convert</button>
 </form>
+
 
 
 {% endblock %}

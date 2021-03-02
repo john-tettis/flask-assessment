@@ -3,7 +3,7 @@ from flask_debugtoolbar import DebugToolbarExtension
 from currency import convert, check_currency, handle_flash, symbol
 
 app = Flask(__name__)
-app.debug=True
+app.debug = False
 app.config['SECRET_KEY']='bananaman'
 
 toolbar = DebugToolbarExtension(app)
